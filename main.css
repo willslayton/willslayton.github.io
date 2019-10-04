@@ -1,13 +1,18 @@
 body {
   font-family: 'Rubik', sans-serif;
 }
+div.banner{
+  width: 100%;
+}
 div.banner h1 {
   font-size: 36pt;
   display: block;
-  padding: 25px 50px;
+  padding: 5px 10px;
+  margin: 5px;
 }
 div.banner h2 {
   font-size: 18pt;
   display: inline-block;
-  padding: 25px 50px;
+  padding: 5px 10px;
+  margin: 5px;
 }
