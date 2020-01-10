@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<!-- Set the page's title and favicon -->
+		<!-- Set the page's title and favicon-->
 		<title>Will Slayton</title>
 		<link rel="icon" type="image/png" href="/favicon.png">
 		<!-- Import the font and main stylesheet -->
@@ -9,26 +9,31 @@
 	</head>
 	<body>
 		<!-- Creating banner at the top of the page for navigation -->
-		<div class="banner">
+		<div class="banner" id="banner">
 			<h1>Will Slayton</h1>
-			<a href="/index#about">About</a><a>Projects</a><a>Contact</a>
+			<a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
 		</div>
 		<!-- Creating container for the content of the page -->
 		<div class="content">
 			<!-- Filling in blank space caused by the banner -->
 			<div class="blank" style="margin: 125px 0 0 0;"></div>
+			<!-- Using ids link the hrefs in the header to their respective divs in the body -->
 			<div id="about">
+				<!-- Section with a short blurb about who I am -->
 				<h2>about</h2>
 				<br>
 				<p>I'm a currently sophomore at Embry Riddle Aeronautical University working towards my B.S. in Computer Science. Working with computers has been a passion of mine for many years and I enjoy learning about the mathematics and design of computing.</p>
 			</div>
+			<!-- Adding space between the sections -->
 			<div class="blank"></div>
 			<div id="projects">
+				<!-- Section including list of notable projects -->
 				<h2>projects</h2>
 				<br>
 				<p>Over the past few years I've worked on many projects so here's a list of some that stand out. Many of them live on <a href="https://github.com/willslayton">my GitHub</a> if you would like to go there to browse instead.</p>
-				<br>
+				<!-- Creating the unordered list of peojects -->
 				<ul>
+					<!-- Each element in the list contains a hyperlinked title of the project and a short description -->
 					<li>
 						<a href="https://github.com/willslayton/willslayton.github.io" style="font-size: 14pt;">This website!</a><br>
 						<p>Made completely from scratch using only HTML/CSS. It was created specifically to host my e-portfolio and see if I can still remember how to create a website after all of these years.</p>
@@ -47,6 +52,15 @@
 					</li>
 				</ul>
 			</div>
+			<!-- Adding space between the sections -->
+			<div class="blank"></div>
+			<div id="contact">
+				<!-- Section on where to contact me -->
+				<h2>contact</h2>
+				<br>
+				<p>The easiest and best way to contact me is via my personal email: <a href="mailto:will.w.slayton@gmail.com">will.w.slayton@gmail.com</a>
+			</div>
+			<br>
 		</div>
 	</body>
 </html>
