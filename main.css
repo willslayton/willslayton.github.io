@@ -1,3 +1,4 @@
+/* Setting inherited font and color for HTML body */
 body {
 	font-family: 'Rubik', sans-serif;
 	background-color: #e0e0e0;
@@ -5,22 +6,7 @@ body {
 	margin: auto;
 	text-align: center;
 }
-div.banner {
-	width: 100%;
-	background-color: #f0f0f0;
-	color: #0f0f0f;
-	padding: 15px 0px 15px 0px;
-	position: fixed;
-	top: 0;
-}
-div.banner h1 {
-	font-size: 36pt;
-	color: inherit;
-	display: block;
-	padding: 0px 10px;
-	margin: 0px;
-	font-weight: 400;
-}
+/* Creating generalized style for hyperlinks */
 a {
 	color: inherit;
 	text-decoration: none;
@@ -29,27 +15,14 @@ a {
 a:hover {
 	text-decoration: underline;
 }
-div.banner a {
-	font-size: 16pt;
-	display: inline-block;
-	padding: 5px 10px;
-	margin: 0px 15px;
-}
-div.blank {
-	padding: 20px;
-}
-div.content {
-	margin: auto;
-	width: 90%;
-	text-align: center;
-}
-div.content div {
-	vertical-align: top;
-	text-align: left;
-}
-.content {
-	font-size: 12pt;
-	overflow: hidden;
+/* Not truly generalized, but using specific tags for a singular purpose */
+h1 {
+	font-size: 36pt;
+	color: inherit;
+	display: block;
+	padding: 0px 10px;
+	margin: 0px;
+	font-weight: 400;
 }
 h2 {
 	font-size: 24pt;
@@ -60,14 +33,46 @@ h2 {
 	text-transform: uppercase;
 	font-weight: 400;
 }
-.content li {
-	padding: 0px 0px 20px 0px;
+/* Designing special div for the header */
+div.banner {
+	width: 100%;
+	background-color: #f0f0f0;
+	color: #0f0f0f;
+	padding: 15px 0px 15px 0px;
+	position: fixed;
+	top: 0;
 }
-.content p {
+div.banner a {
+	font-size: 16pt;
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 0px 15px;
+}
+/* Creating blank class div that can be used to add space between sections */
+div.blank {
+	padding: 20px;
+}
+/* Style for content class div and all inheriting elements */
+div.content {
 	font-size: 12pt;
 	color: inherit;
 	display: inline-block;
+	overflow: hidden;
+	margin: auto;
+	width: 90%;
+	text-align: center;
+}
+div.content div {
+	vertical-align: top;
+	text-align: left;
+}
+div.content p {
 	padding: 10px 10px;
 	margin: 0px;
-	text-align: justify;
+}
+div.content ul {
+	margin: 0px;
+}
+div.content li {
+	padding-top: 20px;
 }
