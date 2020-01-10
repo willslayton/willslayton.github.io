@@ -8,15 +8,45 @@
 		<link rel="stylesheet" type="text/css" href="main.css">
 	</head>
 	<body>
-		<center>
 		<!-- Creating banner at the top of the page for navigation -->
 		<div class="banner">
 			<h1>Will Slayton</h1>
-			<a href="/index">About</a><a>Projects</a><a>Contact</a>
+			<a href="/index#about">About</a><a>Projects</a><a>Contact</a>
 		</div>
-		<!-- Filling in blank space caused by the banner -->
-		<div style=" padding: 10px; margin: 125px 0 0 0;" />
-		<h2>about</h2>
-		</center>
+		<!-- Creating container for the content of the page -->
+		<div class="content">
+			<!-- Filling in blank space caused by the banner -->
+			<div class="blank" style="margin: 125px 0 0 0;"></div>
+			<div id="about">
+				<h2>about</h2>
+				<br>
+				<p>I'm a currently sophomore at Embry Riddle Aeronautical University working towards my B.S. in Computer Science. Working with computers has been a passion of mine for many years and I enjoy learning about the mathematics and design of computing.</p>
+			</div>
+			<div class="blank"></div>
+			<div id="projects">
+				<h2>projects</h2>
+				<br>
+				<p>Over the past few years I've worked on many projects so here's a list of some that stand out. Many of them live on <a href="https://github.com/willslayton">my GitHub</a> if you would like to go there to browse instead.</p>
+				<br>
+				<ul>
+					<li>
+						<a href="https://github.com/willslayton/willslayton.github.io" style="font-size: 14pt;">This website!</a><br>
+						<p>Made completely from scratch using only HTML/CSS. It was created specifically to host my e-portfolio and see if I can still remember how to create a website after all of these years.</p>
+					</li>
+					<li>
+						<a href="https://github.com/willslayton/CS223" style="font-size: 14pt;">CS223 Coursework</a><br>
+						<p>Different assignments and projects that I completed for my Scientific Programming in C (CS223) class.</p>
+					</li>
+					<li>
+						<a href="https://github.com/willslayton/TopTextBottomText" style="font-size: 14pt;">"Top Text, Bottom Text" Image Maker</a><br>
+						<p>A test of Python3 image processing using <a href="https://pypi.org/project/Pillow/2.2.1/">Pillow</a> that I created based on the style of many old internet memes for a given input image and text.</p>
+					</li>
+					<li>
+						<a href="https://github.com/willslayton/DiscordBot" style="font-size: 14pt;">Simple Discord Bot</a><br>
+						<p>An IRC bot implementation for the IM service <a href="https://discordapp.com/">Discord</a> using the <a href="https://github.com/Rapptz/discord.py">discord.py wrapper</a> in Python3. I created a few commands that show the variety of functions that can created using this setup.</p>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</body>
 </html>
