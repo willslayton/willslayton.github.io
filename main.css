@@ -1,43 +1,54 @@
 /* Setting inherited font and color for HTML body */
 body {
 	font-family: 'Rubik', sans-serif;
-	background-color: #e0e0e0;
-	color: #0f0f0f;
+	background-color: #212121;
+	color: rgba(255, 255, 255, 0.75);
 	margin: auto;
 	text-align: center;
 }
 /* Creating generalized style for hyperlinks */
 a {
-	color: inherit;
 	text-decoration: none;
 	font-weight: 600;
+	color: rgba(255, 255, 255, 1) !important;
 }
 a:hover {
 	text-decoration: underline;
 }
 /* Not truly generalized, but using specific tags for a singular purpose */
+td {
+	vertical-align: center;
+}
 h1 {
-	font-size: 36pt;
-	color: inherit;
-	display: block;
+	font-size: 24pt;
+	display: inline-block;
 	padding: 0px 10px;
-	margin: 0px;
-	font-weight: 400;
+	margin: 0px 0px 0px 15px;
+	font-weight: 600;
+	font-style: italic;
+	color: rgba(255, 255, 255, 1) !important;
 }
 h2 {
 	font-size: 24pt;
-	color: inherit;
 	display: inline-block;
 	padding: 10px 10px;
 	margin: 0px;
 	text-transform: uppercase;
 	font-weight: 400;
+	color: rgba(255, 255, 255, 1) !important;
+}
+h3 {
+	font-size: 14pt;
+	font-weight: 600;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px;
+	color: rgba(255, 255, 255, 1) !important;
 }
 /* Designing special div for the header */
 div.banner {
 	width: 100%;
-	background-color: #f0f0f0;
-	color: #0f0f0f;
+	background-color: #121212;
 	padding: 15px 0px 15px 0px;
 	position: fixed;
 	top: 0;
@@ -46,11 +57,7 @@ div.banner a {
 	font-size: 16pt;
 	display: inline-block;
 	padding: 5px 10px;
-	margin: 0px 15px;
-}
-/* Creating blank class div that can be used to add space between sections */
-div.blank {
-	padding: 20px;
+	margin: 0px 0px 0px 15px;
 }
 /* Style for content class div and all inheriting elements */
 div.content {
@@ -63,6 +70,7 @@ div.content {
 	text-align: center;
 }
 div.content div {
+	padding-top: 100px;
 	vertical-align: top;
 	text-align: left;
 }
