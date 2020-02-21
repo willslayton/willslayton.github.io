@@ -18,6 +18,8 @@ a:hover {
 /* Not truly generalized, but using specific tags for a singular purpose */
 td {
 	vertical-align: center;
+	white-space: nowrap;
+	overflow: hidden;
 }
 h1 {
 	font-size: 24pt;
@@ -46,21 +48,32 @@ h3 {
 	color: rgba(255, 255, 255, 1) !important;
 }
 /* Designing special div for the header */
-div.banner {
+.container {
+	/*background-color: #121212;*/
+	/*background: linear-gradient(180deg, rgba(33,33,33,1) 80%, rgba(33,33,33,0) 100%);*/
 	width: 100%;
-	background-color: #121212;
-	padding: 15px 0px 15px 0px;
+	height: 100vh;
 	position: fixed;
+	z-index: 10;
 	top: 0;
+}
+div.banner {
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	padding: 15px 0px 15px 0px;
+	top: 50%;
 }
 div.banner a {
 	font-size: 16pt;
 	display: inline-block;
 	padding: 5px 10px;
 	margin: 0px 0px 0px 15px;
+	overflow: hidden;
 }
 /* Style for content class div and all inheriting elements */
 div.content {
+	padding-top: 100%;
 	font-size: 12pt;
 	color: inherit;
 	display: inline-block;
