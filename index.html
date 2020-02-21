@@ -6,22 +6,49 @@
 		<!-- Import the font and main stylesheet -->
 		<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="main.css">
+		<script>
+			function collapseScroll(){
+				banner = document.getElementById("banner");
+				container = document.getElementById("container");
+				content = document.getElementById("content");
+				content.style.paddingTop = "100vh";
+				if(window.pageYOffset > 0) {
+					if(window.pageYOffset <= (document.body.clientHeight-banner.clientHeight)) {
+						container.style.height = document.body.clientHeight-window.pageYOffset;
+						container.style.background = "";
+						banner.style.left = ((window.pageYOffset*(banner.clientWidth-document.body.clientWidth)+((document.body.clientHeight-banner.clientHeight)*document.body.clientWidth))/(2*(document.body.clientHeight-banner.clientHeight))).toString();
+					} else {
+						container.style.height = banner.clientHeight;
+						container.style.background = "linear-gradient(180deg, rgba(33,33,33,1) 50%, rgba(33,33,33,0) 100%)";
+						banner.style.left = banner.clientWidth/2;
+					}
+				} else {
+					container.style.height = "100vh";
+					container.style.background = "";
+					banner.style.left = "50%";
+				}
+			}
+			window.addEventListener("load", collapseScroll);
+			window.addEventListener("scroll", collapseScroll);
+		</script>
 	</head>
 	<body>
 		<!-- Creating banner at the top of the page for navigation -->
-		<div class="banner" id="banner">
-			<table>
-				<tr>
-					<td><h1>Will Slayton</h1></td>
-					<td><a href="#about">About</a></td>
-					<td><a href="#projects">Projects</a></td>
-					<td><a href="#AITR">AITR Challenges</a></td>
-					<td><a href="#contact">Contact</a></td>
-				</tr>
-			</table>
+		<div class="container" id="container">
+			<div class="banner" id="banner">
+				<table>
+					<tr>
+						<td><h1>Will Slayton</h1></td>
+						<td><a href="#about">About</a></td>
+						<td><a href="#projects">Projects</a></td>
+						<td><a href="#AITR">AITR Challenges</a></td>
+						<td><a href="#contact">Contact</a></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<!-- Creating container for the content of the page -->
-		<div class="content">
+		<div class="content" id="content">
 			<!-- Using ids link the hrefs in the header to their respective divs in the body -->
 			<div id="about" style="margin-top: 0;">
 				<!-- Section with a short blurb about who I am -->
@@ -41,7 +68,7 @@
 						<a href="https://github.com/willslayton/willslayton.github.io" style="font-size: 14pt;">This website!</a><br>
 						<p>Made completely from scratch using only HTML/CSS. It was created specifically to host my e-portfolio and see if I can still remember how to create a website after all of these years.</p>
 					</li>
-					
+
 					<li>
 						<a href="https://github.com/willslayton/ELOsu" style="font-size: 14pt;">ELOsu</a><br>
 						<p>An attempt at making unofficial ratings for osu! matches using <a href="https://github.com/khazhyk/osuapi">khazhyk's osuapi</a> package.</p>
