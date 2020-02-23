@@ -1,15 +1,16 @@
 /* Setting inherited font and color for HTML body */
 body {
-	font-family: 'Rubik', sans-serif;
-	background-color: #212121;
+	font-family: 'Work Sans', sans-serif;
+	background-color: #242424;
 	color: rgba(255, 255, 255, 0.75);
 	margin: auto;
 	text-align: center;
+	line-height: 1.5;
 }
 /* Creating generalized style for hyperlinks */
 a {
 	text-decoration: none;
-	font-weight: 600;
+	font-weight: 500;
 	color: rgba(255, 255, 255, 1) !important;
 }
 a:hover {
@@ -20,15 +21,6 @@ td {
 	vertical-align: center;
 	white-space: nowrap;
 	overflow: hidden;
-}
-h1 {
-	font-size: 24pt;
-	display: inline-block;
-	padding: 0px 10px;
-	margin: 0px 0px 0px 15px;
-	font-weight: 600;
-	font-style: italic;
-	color: rgba(255, 255, 255, 1) !important;
 }
 h2 {
 	font-size: 24pt;
@@ -41,7 +33,7 @@ h2 {
 }
 h3 {
 	font-size: 14pt;
-	font-weight: 600;
+	font-weight: 500;
 	display: inline-block;
 	padding: 0px;
 	margin: 0px;
@@ -49,8 +41,6 @@ h3 {
 }
 /* Designing special div for the header */
 .container {
-	/*background-color: #121212;*/
-	/*background: linear-gradient(180deg, rgba(33,33,33,1) 80%, rgba(33,33,33,0) 100%);*/
 	width: 100%;
 	height: 100vh;
 	position: fixed;
@@ -69,6 +59,12 @@ div.banner a {
 	display: inline-block;
 	padding: 5px 10px;
 	margin: 0px 0px 0px 15px;
+	overflow: hidden;
+}
+div.banner img {
+	height: 48px;
+	padding: 8px 12px;
+	pointer-events: none;
 	overflow: hidden;
 }
 /* Style for content class div and all inheriting elements */
