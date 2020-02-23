@@ -2,9 +2,8 @@
 	<head>
 		<!-- Set the page's title and favicon-->
 		<title>Will Slayton</title>
-		<link rel="icon" type="image/png" href="/favicon.png">
 		<!-- Import the font and main stylesheet -->
-		<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="main.css">
 		<script>
 			function collapseScroll(){
@@ -16,15 +15,17 @@
 					if(window.pageYOffset <= (document.body.clientHeight-banner.clientHeight)) {
 						container.style.height = document.body.clientHeight-window.pageYOffset;
 						container.style.background = "";
+						colorTranslation = 8+24*(window.pageYOffset/(document.body.clientHeight-banner.clientHeight))
+						container.style.backgroundColor = "rgb("+(colorTranslation).toString()+", "+(colorTranslation).toString()+", "+(colorTranslation).toString()+")"
 						banner.style.left = ((window.pageYOffset*(banner.clientWidth-document.body.clientWidth)+((document.body.clientHeight-banner.clientHeight)*document.body.clientWidth))/(2*(document.body.clientHeight-banner.clientHeight))).toString();
 					} else {
 						container.style.height = banner.clientHeight;
-						container.style.background = "linear-gradient(180deg, rgba(33,33,33,1) 50%, rgba(33,33,33,0) 100%)";
+						container.style.background = "linear-gradient(180deg, rgba(36,36,36,1) 0%, rgba(36,36,36,0) 100%)";
 						banner.style.left = banner.clientWidth/2;
 					}
 				} else {
 					container.style.height = "100vh";
-					container.style.background = "";
+					container.style.backgroundColor = "rgb(8, 8, 8)"
 					banner.style.left = "50%";
 				}
 			}
@@ -38,7 +39,7 @@
 			<div class="banner" id="banner">
 				<table>
 					<tr>
-						<td><h1>Will Slayton</h1></td>
+						<td><img src="logo.png"></td>
 						<td><a href="#about">About</a></td>
 						<td><a href="#projects">Projects</a></td>
 						<td><a href="#AITR">AITR Challenges</a></td>
@@ -54,7 +55,7 @@
 				<!-- Section with a short blurb about who I am -->
 				<h2>about</h2>
 				<br>
-				<p>I'm a currently sophomore at Embry Riddle Aeronautical University working towards my B.S. in Computer Science. Working with computers has been a passion of mine for many years and I enjoy learning about the mathematics and design of computing.</p>
+				<p>I'm a currently sophomore at Embry Riddle Aeronautical University working towards my B.S. in Computer Science with a focus in Cybersecurity. Working with computers has been a passion of mine for many years and I enjoy learning about the mathematics and design of computing.</p>
 			</div>
 			<div id="projects">
 				<!-- Section including list of notable projects -->
@@ -66,24 +67,24 @@
 					<!-- Each element in the list contains a hyperlinked title of the project and a short description -->
 					<li>
 						<a href="https://github.com/willslayton/willslayton.github.io" style="font-size: 14pt;">This website!</a><br>
-						<p>Made completely from scratch using only HTML/CSS. It was created specifically to host my e-portfolio and see if I can still remember how to create a website after all of these years.</p>
+						<p>Made completely from scratch using only HTML/CSS and a little JS. It was created specifically to host my e-portfolio and see if I can still remember how to create a website after all of these years.</p>
 					</li>
 
 					<li>
 						<a href="https://github.com/willslayton/ELOsu" style="font-size: 14pt;">ELOsu</a><br>
-						<p>An attempt at making unofficial ratings for osu! matches using <a href="https://github.com/khazhyk/osuapi">khazhyk's osuapi</a> package.</p>
+						<p>An attempt at making unofficial ratings for osu! matches using <a href="https://github.com/khazhyk/osuapi">khazhyk's osuapi</a> package. Includes an example inplementation using one of my other projects, the <a href="https://github.com/willslayton/DiscordBot">Simple Discord Bot</a>, for easy user access.</p>
+					</li>
+					<li>
+						<a href="https://github.com/willslayton/TopTextBottomText" style="font-size: 14pt;">"Top Text, Bottom Text" Image Maker</a><br>
+						<p>A test of Python3 image processing using <a href="https://pypi.org/project/Pillow/2.2.1/">Pillow</a> that I created based on the style of many old internet memes for a given input image and text. It tries to account for dimensions of the image when determining the font size and where to center the text.</p>
+					</li>
+					<li>
+						<a href="https://github.com/willslayton/DiscordBot" style="font-size: 14pt;">Simple Discord Bot</a><br>
+						<p>An IRC bot implementation for the IM service <a href="https://discordapp.com/">Discord</a> using the <a href="https://github.com/Rapptz/discord.py">discord.py wrapper</a> in Python3. I wrote a few example commands that show the variety and flexibility of functions that can created using this setup.</p>
 					</li>
 					<li>
 						<a href="https://github.com/willslayton/CS223" style="font-size: 14pt;">CS223 Coursework</a><br>
 						<p>Different assignments and projects that I completed for my Scientific Programming in C (CS223) class.</p>
-					</li>
-					<li>
-						<a href="https://github.com/willslayton/TopTextBottomText" style="font-size: 14pt;">"Top Text, Bottom Text" Image Maker</a><br>
-						<p>A test of Python3 image processing using <a href="https://pypi.org/project/Pillow/2.2.1/">Pillow</a> that I created based on the style of many old internet memes for a given input image and text.</p>
-					</li>
-					<li>
-						<a href="https://github.com/willslayton/DiscordBot" style="font-size: 14pt;">Simple Discord Bot</a><br>
-						<p>An IRC bot implementation for the IM service <a href="https://discordapp.com/">Discord</a> using the <a href="https://github.com/Rapptz/discord.py">discord.py wrapper</a> in Python3. I created a few commands that show the variety of functions that can created using this setup.</p>
 					</li>
 				</ul>
 			</div>
@@ -91,13 +92,17 @@
 				<!-- Section including list of notable projects -->
 				<h2>AITR challenges</h2>
 				<br>
-				<p>During my time in the Academy of Information Technology and Robotics (AITR) there were many projects woven into the curriculum involving all sorts of STEM topics like cybersecurity, robotics, and programming. Most of these "challenges" lasted for six weeks, but some were so involved that twelve weeks was required. Below is a list of some of the most interesting challenges that my peers and I worked on back in high school.</p>
+				<p>During my time in the <a href="http://www.creekaitr.com/">Academy of Information Technology and Robotics (AITR)</a> there were many projects woven into the curriculum involving all sorts of STEM topics like cybersecurity, robotics, and programming. Most of these "challenges" lasted for six weeks, but some were so involved that twelve weeks was required. Below is a list of some of the most interesting challenges that my peers and I worked on back in high school.</p>
 				<!-- Creating the unordered list of peojects -->
 				<ul>
 					<!-- Each element in the list contains title of the challenge and a short description -->
 					<li>
+						<h3>Cybersecurity CTF</h3><br>
+						<p>To teach our class about cybersecurity the academy teachers arranged a six week challenge which culminated in a CTF (capture the flag) competition between student teams. In a CTF each team is given an image on a virtual machine that has several security flaws or vulnerabilities (known as flags) that the team is tasked with finding and fixing. AITR has close ties to our school's <a href="https://www.uscyberpatriot.org/">CyberPatriot</a> team, which competes in state and national CTFs, so we were visited by guest speakers from the team to teach us the basics of computer security.</p>
+					</li>
+					<li>
 						<h3>Coming Soon!</h3><br>
-						<p>This is under construction.</p>
+						<p>This section is under construction.</p>
 					</li>
 				</ul>
 			</div>
