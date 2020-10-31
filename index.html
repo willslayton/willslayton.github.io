@@ -15,17 +15,16 @@
 					if(window.pageYOffset <= (document.body.clientHeight-banner.clientHeight)) {
 						container.style.height = document.body.clientHeight-window.pageYOffset;
 						container.style.background = "";
-						colorTranslation = 8+24*(window.pageYOffset/(document.body.clientHeight-banner.clientHeight))
-						container.style.backgroundColor = "rgb("+(colorTranslation).toString()+", "+(colorTranslation).toString()+", "+(colorTranslation).toString()+")"
+						container.style.backgroundColor = "rgba(8, 8, 8, "+(1-(window.pageYOffset/(document.body.clientHeight-banner.clientHeight))).toString()+")"
 						banner.style.left = ((window.pageYOffset*(banner.clientWidth-document.body.clientWidth)+((document.body.clientHeight-banner.clientHeight)*document.body.clientWidth))/(2*(document.body.clientHeight-banner.clientHeight))).toString();
 					} else {
 						container.style.height = banner.clientHeight;
-						container.style.background = "linear-gradient(180deg, rgba(36,36,36,1) 0%, rgba(36,36,36,0) 100%)";
+						container.style.background = "linear-gradient(180deg, rgba(36,36,36,1) 50%, rgba(36,36,36,0) 100%)";
 						banner.style.left = banner.clientWidth/2;
 					}
 				} else {
 					container.style.height = "100vh";
-					container.style.backgroundColor = "rgb(8, 8, 8)"
+					container.style.backgroundColor = "rgba(8, 8, 8, 1)"
 					banner.style.left = "50%";
 				}
 			}
@@ -39,10 +38,10 @@
 			<div class="banner" id="banner">
 				<table>
 					<tr>
-						<td><img src="logo.png"></td>
+						<td><h1>Will Slayton</h1></td>
 						<td><a href="#about">About</a></td>
 						<td><a href="#projects">Projects</a></td>
-						<td><a href="#AITR">AITR Challenges</a></td>
+						<td><a href="#timeline">Timeline</a></td>
 						<td><a href="#contact">Contact</a></td>
 					</tr>
 				</table>
@@ -55,7 +54,7 @@
 				<!-- Section with a short blurb about who I am -->
 				<h2>about</h2>
 				<br>
-				<p>I'm a currently junior at Embry Riddle Aeronautical University working towards my B.S. in Computer Science with a focus in Cybersecurity. Working with computers has been a passion of mine for many years and I enjoy learning about the mathematics and design of computing.</p>
+				<p>I'm a currently junior at Embry Riddle Aeronautical University working towards my B.S. in Computer Science with a focus in Cybersecurity. Working with computers has been a passion of mine for a very long time and I enjoy learning about the mathematics and design of computing. I have varying degrees of experience with languages like Python, C, Assembly, Java, JavaScript, SQL, Git, Arduino, and HTML/CSS but I'm always willing to pick up a new language if needed.</p>
 			</div>
 			<div id="projects">
 				<!-- Section including list of notable projects -->
@@ -81,18 +80,84 @@
 						<a href="https://github.com/willslayton/DiscordBot" style="font-size: 14pt;">Simple Discord Bot</a><br>
 						<p>An IRC bot implementation for the IM service <a href="https://discordapp.com/">Discord</a> using the <a href="https://github.com/Rapptz/discord.py">discord.py wrapper</a> in Python3. I wrote a few example commands that show the variety and flexibility of functions that can created using this setup.</p>
 					</li>
-					<li>
-						<a href="https://github.com/willslayton/CS223" style="font-size: 14pt;">CS223 Coursework</a><br>
-						<p>Different assignments and projects that I completed for my Scientific Programming in C (CS223) class.</p>
-					</li>
 				</ul>
 			</div>
-			<div id="AITR">
+			<div id="Timeline">
 				<!-- Section including list of notable projects -->
-				<h2>AITR challenges</h2>
+				<h2>Timeline</h2>
+				<br><br>
+				<h3>Now</h3>
+				<br>
+				<p>Briefly I want to mention my introductory Java course that lays the foundation of software design such as creating requirements, test cases, and UML diagrams, which I was unfamiliar with prior. Probably my favorite class this semester has been a course in Microprocessor Systems which deals with coding for ARM microcontrollers like the STM32L476 Discovery, which is used in the class, on a low level. Using the MDK ARM software Keil uVision 5 I've been learning about how microprocessors function and have been writing code in C and Assembly to work with the board. A wonderful example of this sort of work is the CMSIS definition of HAL GPIO functions that replaced them in<p id=code>stm32l4xx_hal_gpio.c</p> as shown below.</p>
+				<br>
+				<div id="code">
+					GPIO_PinState CMS_GPIO_ReadPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin){<br>
+					 if(GPIOx->IDR & GPIO_Pin){ <p id=comment>// If the pin is currently HIGH on IDR</p><br>
+					  return GPIO_PIN_SET; <p id=comment>// Return HIGH</p><br>
+					 } else {<br>
+					  return GPIO_PIN_RESET; <p id=comment>// Return LOW</p><br>
+					 }<br>
+					}<br>
+					GPIO_PinState CMS_GPIO_WritePin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState){<br>
+					 if(PinState == GPIO_PIN_SET){ <p id=comment>// If the pin is HIGH</p><br>
+					  GPIOx->ODR |= GPIO_Pin; <p id=comment>// OR the ODR and pin position</p><br>
+					 } else {<br>
+					  GPIOx->ODR &= !GPIO_Pin; <p id=comment>// AND the ODR and NOT pin position</p><br>
+					 }<br>
+					}<br>
+					GPIO_PinState CMS_GPIO_TogglePin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin){<br>
+					 GPIOx->ODR ^= !GPIO_Pin; <p id=comment>XOR ODR with NOT pin position</p><br>
+					}
+				</div>
+				<br>
+				<p>This code defines functions that can read the value of a single pin, write to the value of a single pin, and toggle the value of a single pin using only the base GPIO function, compared to premade functions with HAL, as well as some clever boolean algebra. Although this is dealing in a quite low level space with signals from single GPIO pins on a microcontroller, but the class goes even lower than that. Assembly is one of the lowest level languages that allows for improvements over even languages like C in processing time, which is important when thinking in terms of microcontrollers. Below is a simple implementation of a function that runs a for loop that calculates the sum of numbers 0 to 9, a task which would only take a few lines in C.</p>
+				<br>
+				<div id="code">
+					func_for_loop PROC<br>
+					 MOV r0, #0 <p id=comment>; i = 0</p><br>
+					 MOV r1, #0 <p id=comment>; total_sum = 0</p><br>
+					loop CMP r0, #10 <p id=comment>; comparing i to 10</p><br>
+					 BGE endloop <p id=comment>; if i >= 10 branch endloop</p><br>
+					 ADD r1, r1, r0 <p id=comment>; total_sum += i</p><br>
+					 ADD r0, r0, #1 <p id=comment>; i++</p><br>
+					 B	loop <p id=comment>; branch loop</p><br>
+					endloop<br>
+					 BX	lr<br>
+					ENDP
+				</div>
+				<br>
+				<p>Although it's much longer this is the same code that a C assembler may convert it into, which allows you to employ some useful tricks which can save lines of Assembly and in turn processing time. I find things like these fascinating to learn about and fiddle with because this is in all practicality the closest to machine code most people will ever get, and you can see how higher level languages are able to create more complex features from these simple base structures. Another example of these Assembly functions in action is one that involves loading data from memory to a register and storing data from register to memory.</p>
+				<br>
+				<div id="code">
+					<p id="code">
+						task PROC<br>
+						 PUSH {r4-r5, lr}<br>
+						<p id=comment>; r0 is the address of an array with halfword sized data<br>
+						 ; r1 is the address of an array with word sized data<br>
+						 ; r2 is a uint32_t word</p><br>
+						 SUB r2, r2, #1 <p id=comment>; counter--</p><br>
+						 MOV r3, #0 <p id=comment>; moving 0 into r3, think of this as i</p><br>
+						task_loop<br>
+						 CMP r3, r2 <p id=comment>; compare r3 to r2</p><br>
+						 BGE task_end <p id=comment>; if r3 >= r2 then branch task_end</p><br>
+						 LDRH r4, [r0], #2 <p id=comment>; load into r4 the value at first array pointer, then increment the array pointer</p><br>
+						 LDRH r5, [r0] <p id=comment>; load into r5 the value at first array pointer which is in the new position</p><br>
+						 ADD r4, r5, LSL #4 <p id=comment>; add to r4, r5 bit shifted left 4 digits (or multiplied by 16)</p><br>
+						 STR r4, [r1, r3, LSL #2] <p id=comment>; store data in r4 to the memory address of the second array at index r3</p><br>
+						 ADD r3, #1 <p id=comment>; increment r3, or i++</p><br>
+						 B task_loop <p id=comment>; branch task_loop</p><br>
+						task_end<br>
+						 POP {r4-r5, pc}<br>
+						 ENDP
+					</p>
+				</div>
+				<br>
+				<p>The comments should hopefully explain the code well enough, but if it's unclear this is another sort of example of a for loop where the loading and storing of data takes place. One of the most important things to keep in mind when writing functions like this that you find out quickly is to keep track of what size and type data you're dealing with in the registers because there's different native ways to handle them in ARM. There's different instructions such as<p id="code">LDRB</p> for loading a byte, <p id="code">LDRSH</p> for loading signed halfwords, and <p id="code">LDRD</p> for loading doublewords just to name a few. Overall this course has really taught me about how processors work and understand the code that we write and has made me think about how assembly of some languages I code in regularly works.</p>
+				<br><br>
+				<h3>2014 Fall - 2018 Spring</h3>
 				<br>
 				<p>During my time in the <a href="http://www.creekaitr.com/">Academy of Information Technology and Robotics (AITR)</a> there were many projects woven into the curriculum involving all sorts of STEM topics like cybersecurity, robotics, and programming. Most of these "challenges" lasted for six weeks, but some were so involved that twelve weeks was required. Below is a list of some of the most interesting challenges that my peers and I worked on back in high school.</p>
-				<!-- Creating the unordered list of peojects -->
+				<!-- Creating the unordered list of projects -->
 				<ul>
 					<!-- Each element in the list contains title of the challenge and a short description -->
 					<li>
@@ -110,6 +175,7 @@
 				<h2>contact</h2>
 				<br>
 				<p>The easiest and best way to contact me is via my personal email: <a href="mailto:will.w.slayton@gmail.com">will.w.slayton@gmail.com</a>
+				<br>
 			</div>
 			<br>
 		</div>
