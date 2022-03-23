@@ -87,9 +87,11 @@ div.content {
 	text-align: center;
 }
 div.content div {
-	padding-top: 100px;
 	vertical-align: top;
 	text-align: left;
+}
+div.section {
+	padding-top: 100px;
 }
 div.content div#code {
 	font-size: 11pt;
@@ -106,7 +108,7 @@ div.content div#code {
 div.content p {
 	padding: 10px 10px;
 	margin: 0px;
-	display: inline;
+	display: inline-block;
 }
 div.content p#code {
 	font-size: 11pt;
@@ -123,6 +125,50 @@ div.content p#comment {
 div.content ul {
 	margin: 0px;
 }
-div.content li {
-	padding-top: 20px;
+/* Styling for project display*/
+div.project-card img {
+	width: 100%;
+	height: 20%;
+	object-fit: cover;
+	object-position: top left;
+	margin-top: 0;
+	border-radius: 8px;
+	margin: 0;
+	display: inline-block;
+	transition: 150ms ease;
+}
+div.project-card img:hover {
+	height: 50%;
+	object-position: center;
+	transition: 150ms ease;
+}
+div.project-card {
+	padding: 0;
+	padding-top: 0;
+	display: inline-block;
+	width: 100%;
+	margin: 2%;
+	border-radius: 10px;
+	background-color: #181818;
+}
+div.project-column {
+	padding: 1%;
+	display: inline-block;
+	width: 45%;
+	margin-top: 0;
+}
+div.project-content {
+	padding: 2%;
+	width: 90%;
+	margin: 0;
+	display: inline-block;
+}
+div#footer {
+	text-align: center;
+	align-items: center;
+}
+div#footer hr {
+	border-color: rgba(255, 255, 255, 0.1);
+	width: 100%;
+	height: 0px;
 }

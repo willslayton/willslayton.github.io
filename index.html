@@ -53,38 +53,52 @@
 		<!-- Creating container for the content of the page -->
 		<div class="content" id="content">
 			<!-- Using ids link the hrefs in the header to their respective divs in the body -->
-			<div id="about" style="margin-top: 0;">
+			<div id="about" class="section" style="margin-top: 0;">
 				<!-- Section with a short blurb about who I am -->
 				<h2>about</h2>
 				<br>
 				<p>I'm a currently senior at <a href="https://erau.edu/">Embry Riddle Aeronautical University</a> working towards my B.S. in Computer Science with a focus in Cybersecurity. Computing has been a passion of mine for a very long time and I enjoy learning about the underlying logic and design of computers and digital systems. I have varying degrees of experience with languages like Python, C, Assembly, Java, JavaScript, Racket, SQL, Git, Arduino, and HTML/CSS but I'm always willing to pick up a new language if needed.</p>
 			</div>
-			<div id="projects">
+			<div id="projects" class="section">
 				
 				<!-- Section including list of notable projects -->
 				<h2>projects</h2>
 				<br>
-				<p>Over the past few years I've worked on many projects, some of them live on <a href="https://github.com/willslayton">my GitHub</a>, but here are some of the current projects I've been working on.</p>
-				<ul>
-					<li>
-						<a href="https://github.com/willslayton/willslayton.github.io" style="font-size: 14pt;">This website!</a><br>
-						<p>Made completely from scratch using only HTML/CSS and a little JS. It was created specifically to host my portfolio and see if I can still remember how to create a website after all of these years.</p>
-					</li>
-					<li>
-						<a href="https://github.com/sareynol98/struct-notes" style="font-size: 14pt;">Capstone Design Project: Note Taking App</a><br>
-						<p>For my senior project I have been working with a team of three others to create a speech-to-text note taking application which uses a <a href="https://github.com/NVIDIA/NeMo"></a>NVIDIA NeMo model</a> to help create structured notes. The machine learning aspect not only utilizes tailored speech recognition to more accurately match intended input, but can also use recognized command words to prompt certain interaction with the application. Speech is not needed to operate, the GUI provides buttons to aid with note taking and a text area which can render many commonly user markdown symbols live. Repository is private for now, but I may be able to provide further details upon request.</p>
-					</li>
-					<li>
-						<a href="https://github.com/willslayton/wx" style="font-size: 14pt;">WX Language</a><br>
-						<p>WX is a personal project to try and create a programming language via a lexer, parser, and compiler in C. After taking a course on the organization of programming languages and learning about how languages are built I felt inspired to try and make something simple myself. Given the syntax described in my example the lexer tokenizes the text, which is then fed to a parser which generates an abstract syntax tree, and then will be compiled. Just recently I was able to add in some basic logic for the compilation translation layer to x32 and x64 assembly, and I hope to keep pushing until it is fully functioning.</p>
-					</li>
-					<li>
-						<a href="https://github.com/willslayton/" style="font-size: 14pt;">...and various other things!</a><br>
-						<p>I've created smaller projects here and there which I sometimes also commit to GitHub, so there's bound to be a few interesting things in there. Maybe <a href="https://github.com/willslayton/RandomTextTransform">a script which applies random transformations to bodies of test</a>, or <a href="https://github.com/willslayton/TopTextBottomText">one which can add text to images in the style of old internet memes</a>, or even <a href="https://github.com/willslayton/DiscordBot">a basic chat bot for the popular messaging service Discord</a>.</p>
-					</li>
-				</ul>
+				<p>Over the past few years I've worked on many projects, some of them live on <a href="https://github.com/willslayton">my GitHub</a>, but here are some of the current projects I've been working on. Hover over the images to see a little bit more.</p><br>
+				<div class="project-column">
+					<div class="project-card">
+						<img src="images/website.png">
+						<div class="project-content">
+							<a href="https://github.com/willslayton/willslayton.github.io" style="font-size: 14pt;">This website!</a><br>
+							<p>Made completely from scratch using only HTML/CSS and a little JS. It was created specifically to host my portfolio and see if I can still remember how to create a website after all of these years.</p>
+						</div>
+					</div>
+					<div class="project-card">
+						<img src="images/notetakingapp.png">
+						<div class="project-content">
+							<a href="https://github.com/sareynol98/struct-notes" style="font-size: 14pt;">Capstone Design Project: Note Taking App</a><br>
+							<p>For my senior project I have been working with a team of three others to create a speech-to-text note taking application which uses a <a href="https://github.com/NVIDIA/NeMo"></a>NVIDIA NeMo model</a> to help create structured notes. The machine learning aspect not only utilizes tailored speech recognition to more accurately match intended input, but can also use recognized command words to prompt certain interaction with the application. Speech is not needed to operate, the GUI provides buttons to aid with note taking and a text area which can render many commonly user markdown symbols live. Repository is private for now, but I may be able to provide further details upon request.</p>
+						</div>
+					</div>
+				</div>
+				<div class="project-column">
+					<div class="project-card">
+						<img src="images/wxlanguage.png">
+						<div class="project-content">
+							<a href="https://github.com/willslayton/wx" style="font-size: 14pt;">WX Language</a><br>
+							<p>WX is a personal project to try and create a programming language via a lexer, parser, and compiler in C. After taking a course on the organization of programming languages and learning about how languages are built I felt inspired to try and make something simple myself. Given the syntax described in my example the lexer tokenizes the text, which is then fed to a parser which generates an abstract syntax tree, and then will be compiled. Just recently I was able to add in some basic logic for the compilation translation layer to x32 and x64 assembly, and I hope to keep pushing until it is fully functioning.</p>
+						</div>
+					</div>
+					<div class="project-card">
+						<img src="images/githubrepos.png">
+						<div class="project-content">
+							<a href="https://github.com/willslayton/" style="font-size: 14pt;">...and various other things!</a><br>
+							<p>I've created smaller projects here and there which I sometimes also commit to GitHub, so there's bound to be a few interesting things in there. Maybe <a href="https://github.com/willslayton/RandomTextTransform">a script which applies random transformations to bodies of test</a>, or <a href="https://github.com/willslayton/TopTextBottomText">one which can add text to images in the style of old internet memes</a>, or even <a href="https://github.com/willslayton/DiscordBot">a basic chat bot for the popular messaging service Discord</a>.</p>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div id="contact">
+			<div id="contact" class="section">
 				<!-- Section on where to contact me -->
 				<h2>contact</h2>
 				<br>
@@ -92,6 +106,10 @@
 				<br>
 				<br>
 				<br>
+			</div>
+			<div id="footer" class="section">
+				<hr>
+				<span> © 2022 - Will Slayton</span>
 			</div>
 			<br>
 		</div>
